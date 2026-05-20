@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Programs — Nouveau Hope Wellness Group Inc</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --color-primary: #2A7B6F;
+      --color-primary-dark: #1D5C54;
+      --color-secondary: #4EA8A0;
+      --color-accent: #E8A87C;
+      --color-accent-dark: #D4895A;
+      --color-bg: #F9F7F4;
+      --color-bg-alt: #EEF5F4;
+      --color-bg-card: #FFFFFF;
+      --color-text: #2C3E35;
+      --color-text-light: #6B8077;
+      --color-top-bar: #1D5C54;
+      --color-top-bar-text: #D4EDE9;
+      --color-border: #D5E8E5;
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-body: 'Nunito', system-ui, sans-serif;
+      --shadow-sm: 0 1px 3px rgba(42,123,111,0.08);
+      --shadow-md: 0 4px 16px rgba(42,123,111,0.12);
+      --shadow-lg: 0 8px 32px rgba(42,123,111,0.16);
+      --radius: 12px;
+      --radius-sm: 6px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-body); background: var(--color-bg); color: var(--color-text); line-height: 1.7; }
+
+    .top-bar { background: var(--color-top-bar); color: var(--color-top-bar-text); padding: 0.45rem 1.5rem; display: flex; justify-content: center; gap: 2.5rem; font-size: 0.82rem; font-weight: 500; flex-wrap: wrap; }
+    .top-bar a { color: var(--color-top-bar-text); text-decoration: none; display: flex; align-items: center; gap: 0.4rem; transition: opacity 0.2s; }
+    .top-bar a:hover { opacity: 0.75; }
+    .top-bar .divider { opacity: 0.3; }
+
+    .navbar { background: var(--color-bg-card); box-shadow: var(--shadow-sm); position: sticky; top: 0; z-index: 100; border-bottom: 2px solid var(--color-border); }
+    .nav-inner { max-width: 1160px; margin: 0 auto; padding: 0 1.5rem; display: flex; align-items: center; justify-content: space-between; height: 72px; }
+    .nav-brand { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; }
+    .nav-logo { width: 44px; height: 44px; background: var(--color-primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+    .nav-logo svg { width: 24px; height: 24px; fill: white; }
+    .nav-brand-name { font-family: var(--font-display); font-size: 1.1rem; font-weight: 700; color: var(--color-primary-dark); display: block; }
+    .nav-brand-sub { font-size: 0.7rem; color: var(--color-text-light); font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; }
+    .nav-links { display: flex; gap: 0.25rem; list-style: none; }
+    .nav-links a { display: block; padding: 0.5rem 0.9rem; text-decoration: none; color: var(--color-text); font-weight: 600; font-size: 0.88rem; border-radius: var(--radius-sm); transition: background 0.2s, color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { background: var(--color-bg-alt); color: var(--color-primary); }
+    .nav-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 6px; }
+    .nav-toggle span { display: block; width: 24px; height: 2px; background: var(--color-text); border-radius: 2px; }
+
+    .page-hero { background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 60%, var(--color-secondary) 100%); padding: 5rem 1.5rem; text-align: center; color: white; position: relative; overflow: hidden; }
+    .page-hero::before { content: ''; position: absolute; width: 500px; height: 500px; border-radius: 50%; background: rgba(255,255,255,0.04); top: -200px; right: -100px; }
+    .page-hero-label { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #A8DED9; margin-bottom: 0.75rem; }
+    .page-hero h1 { font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 1rem; }
+    .page-hero p { font-size: 1.05rem; opacity: 0.85; max-width: 560px; margin: 0 auto; }
+
+    section { padding: 5rem 1.5rem; }
+    .container { max-width: 1160px; margin: 0 auto; }
+    .section-label { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-secondary); margin-bottom: 0.6rem; }
+    .section-title { font-family: var(--font-display); font-size: clamp(1.8rem, 3vw, 2.5rem); color: var(--color-primary-dark); margin-bottom: 1rem; line-height: 1.25; }
+    .section-desc { font-size: 1.05rem; color: var(--color-text-light); max-width: 600px; margin-bottom: 3rem; }
+
+    .programs-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.75rem; }
+
+    .program-card {
+      background: var(--color-bg-card);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--color-border);
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .program-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); }
+
+    .program-image {
+      height: 160px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .program-image::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, transparent 50%, rgba(0,0,0,0.08));
+    }
+
+    .program-body { padding: 1.75rem; flex: 1; display: flex; flex-direction: column; }
+    .program-tag { display: inline-block; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.2rem 0.65rem; border-radius: 20px; margin-bottom: 0.75rem; }
+    .program-title { font-family: var(--font-display); font-size: 1.15rem; font-weight: 600; color: var(--color-primary-dark); margin-bottom: 0.6rem; }
+    .program-desc { font-size: 0.88rem; color: var(--color-text-light); line-height: 1.7; flex: 1; }
+    .program-impact {
+      margin-top: 1.25rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--color-border);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--color-primary);
+    }
+    .program-impact-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--color-accent); flex-shrink: 0; }
+    .program-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin-top: 1rem;
+      color: var(--color-primary);
+      font-weight: 700;
+      font-size: 0.88rem;
+      text-decoration: none;
+      transition: gap 0.2s;
+    }
+    .program-link:hover { gap: 0.6rem; }
+
+    /* Color themes for program image areas */
+    .theme-teal { background: linear-gradient(135deg, #EEF5F4, #C8E8E5); }
+    .theme-sage { background: linear-gradient(135deg, #EEF3EE, #C8DCC8); }
+    .theme-peach { background: linear-gradient(135deg, #FDF3EC, #F5D5BC); }
+    .theme-blue { background: linear-gradient(135deg, #EEF2F8, #C8D8F0); }
+    .theme-lavender { background: linear-gradient(135deg, #F3EEF8, #D8C8EE); }
+    .theme-gold { background: linear-gradient(135deg, #F8F5EE, #EEE0C0); }
+
+    .tag-wellness { background: #EEF5F4; color: var(--color-primary); }
+    .tag-mental { background: #EEF2F8; color: #3A6CA8; }
+    .tag-family { background: #FDF3EC; color: var(--color-accent-dark); }
+    .tag-health { background: #F3EEF8; color: #7A5AAE; }
+    .tag-skills { background: #F8F5EE; color: #8A7030; }
+    .tag-outreach { background: #EEF3EE; color: #4A7A4A; }
+
+    /* Approach section */
+    .approach-section { background: var(--color-bg-alt); }
+    .approach-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+    .approach-card { background: var(--color-bg-card); border-radius: var(--radius); padding: 1.75rem 1.25rem; text-align: center; box-shadow: var(--shadow-sm); border: 1px solid var(--color-border); }
+    .approach-step { font-family: var(--font-display); font-size: 2.5rem; font-weight: 700; color: var(--color-border); line-height: 1; margin-bottom: 0.75rem; }
+    .approach-title { font-weight: 700; color: var(--color-primary-dark); margin-bottom: 0.4rem; font-size: 0.95rem; }
+    .approach-desc { font-size: 0.82rem; color: var(--color-text-light); }
+
+    .btn { display: inline-block; padding: 0.8rem 1.8rem; border-radius: var(--radius); font-family: var(--font-body); font-size: 0.95rem; font-weight: 700; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-secondary { background: var(--color-primary); color: white; box-shadow: var(--shadow-md); }
+    .btn-secondary:hover { background: var(--color-primary-dark); }
+
+    footer { background: var(--color-primary-dark); color: rgba(255,255,255,0.8); padding: 4rem 1.5rem 2rem; }
+    .footer-inner { max-width: 1160px; margin: 0 auto; }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
+    .footer-brand-name { font-family: var(--font-display); font-size: 1.3rem; font-weight: 700; color: white; margin-bottom: 0.5rem; }
+    .footer-tagline { font-size: 0.88rem; opacity: 0.7; margin-bottom: 1.25rem; }
+    .footer-socials { display: flex; gap: 0.75rem; }
+    .footer-social { width: 36px; height: 36px; background: rgba(255,255,255,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; color: white; transition: background 0.2s; }
+    .footer-social:hover { background: rgba(255,255,255,0.2); }
+    .footer-col-title { color: white; font-weight: 700; margin-bottom: 1rem; font-size: 0.9rem; }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+    .footer-links a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 0.88rem; transition: color 0.2s; }
+    .footer-links a:hover { color: white; }
+    .footer-contact-item { display: flex; gap: 0.5rem; font-size: 0.88rem; margin-bottom: 0.5rem; opacity: 0.8; }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1.5rem; display: flex; justify-content: space-between; font-size: 0.8rem; opacity: 0.55; flex-wrap: wrap; gap: 0.5rem; }
+
+    .fade-in { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .fade-in.visible { opacity: 1; transform: none; }
+
+    @media (max-width: 1024px) { .programs-grid { grid-template-columns: repeat(2, 1fr); } .approach-grid { grid-template-columns: repeat(2, 1fr); } .footer-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 768px) {
+      .programs-grid { grid-template-columns: 1fr; }
+      .approach-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .nav-links { display: none; flex-direction: column; position: absolute; top: 72px; left: 0; right: 0; background: white; padding: 1rem; box-shadow: var(--shadow-md); }
+      .nav-links.open { display: flex; }
+      .nav-toggle { display: flex; }
+      .navbar { position: relative; }
+    }
+    @media (max-width: 480px) { .approach-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+  <div class="top-bar">
+    <a href="mailto:info@nouveauhope.us">✉ info@nouveauhope.us</a>
+    <span class="divider">|</span>
+    <a href="https://nouveauhope.us" target="_blank" rel="noopener">🌐 nouveauhope.us</a>
+    <span class="divider">|</span>
+    <span>📍 2968 Russ St, Marianna, FL 32446</span>
+  </div>
+
+  <nav class="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand">
+        <div class="nav-logo">
+          <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 100 20A10 10 0 0012 2zm0 18a8 8 0 110-16 8 8 0 010 16zM8 12l4-6 4 6H8z"/></svg>
+        </div>
+        <div style="line-height:1.2;">
+          <span class="nav-brand-name">Nouveau Hope</span>
+          <span class="nav-brand-sub">Wellness Group</span>
+        </div>
+      </a>
+      <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="mission.html">Mission</a></li>
+        <li><a href="history.html">History</a></li>
+        <li><a href="projects.html" class="active">Programs</a></li>
+        <li><a href="team.html">Team</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="page-hero">
+    <div class="page-hero-label">What We Do</div>
+    <h1>Our Programs</h1>
+    <p>Each program is designed to meet a real need in our community — delivering practical support with compassion, dignity, and lasting impact.</p>
+  </div>
+
+  <section>
+    <div class="container">
+      <div class="section-label">Core Programs</div>
+      <h2 class="section-title">How We Help</h2>
+      <p class="section-desc">Our programs address the full spectrum of wellness — from mental health and family support to health navigation and life skills — so no one falls through the cracks.</p>
+      <div class="programs-grid">
+
+        <div class="program-card fade-in">
+          <div class="program-image theme-blue">🧠</div>
+          <div class="program-body">
+            <span class="program-tag tag-mental">Mental Health</span>
+            <div class="program-title">Mental Health Support</div>
+            <p class="program-desc">We provide accessible mental health resources, peer support connections, and guided pathways to professional care for individuals experiencing emotional and psychological challenges. Our approach is non-judgmental, trauma-informed, and culturally sensitive.</p>
+            <div class="program-impact"><div class="program-impact-dot"></div>Serving individuals across all age groups</div>
+            <a href="contact.html" class="program-link">Learn More →</a>
+          </div>
+        </div>
+
+        <div class="program-card fade-in">
+          <div class="program-image theme-teal">🌱</div>
+          <div class="program-body">
+            <span class="program-tag tag-wellness">Wellness</span>
+            <div class="program-title">Community Wellness Initiatives</div>
+            <p class="program-desc">Through educational workshops, wellness events, and preventive care campaigns, we help community members build healthier habits and make informed choices about their physical and emotional well-being — before a crisis develops.</p>
+            <div class="program-impact"><div class="program-impact-dot"></div>Regular events throughout Jackson County</div>
+            <a href="contact.html" class="program-link">Learn More →</a>
+          </div>
+        </div>
+
+        <div class="program-card fade-in">
+          <div class="program-image theme-peach">👨‍👩‍👧</div>
+          <div class="program-body">
+            <span class="program-tag tag-family">Family</span>
+            <div class="program-title">Family Empowerment</div>
+            <p class="program-desc">Families are the foundation of healthy communities. We provide direct support, resource referrals, and individualized guidance to help families strengthen their bonds, navigate hardship, and build a more stable future together.</p>
+            <div class="program-impact"><div class="program-impact-dot"></div>Supporting families from all backgrounds</div>
+            <a href="contact.html" class="program-link">Learn More →</a>
+          </div>
+        </div>
+
+        <div class="program-card fade-in">
+          <div class="program-image theme-lavender">🏥</div>
+          <div class="program-body">
+            <span class="program-tag tag-health">Health Navigation</span>
+            <div class="program-title">Health System Navigation</div>
+            <p class="program-desc">Navigating healthcare can be overwhelming — especially without insurance or established care relationships. We help community members understand their options, access benefits, complete applications, and connect with the right providers.</p>
+            <div class="program-impact"><div class="program-impact-dot"></div>Helping remove financial &amp; logistical barriers</div>
+            <a href="contact.html" class="program-link">Learn More →</a>
+          </div>
+        </div>
+
+        <div class="program-card fade-in">
+          <div class="program-image theme-gold">🎓</div>
+          <div class="program-body">
+            <span class="program-tag tag-skills">Life Skills</span>
+            <div class="program-title">Life Skills &amp; Resilience Training</div>
+            <p class="program-desc">From financial literacy and stress management to self-advocacy and goal-setting, our life skills programming equips participants with practical tools they can use immediately to navigate challenges and build lasting resilience.</p>
+            <div class="program-impact"><div class="program-impact-dot"></div>Workshops available to all community members</div>
+            <a href="contact.html" class="program-link">Learn More →</a>
+          </div>
+        </div>
+
+        <div class="program-card fade-in">
+          <div class="program-image theme-sage">🤲</div>
+          <div class="program-body">
+            <span class="program-tag tag-outreach">Outreach</span>
+            <div class="program-title">Community Outreach &amp; Referrals</div>
+            <p class="program-desc">We actively reach into underserved areas of our community — meeting people where they are, informing them of available resources, and connecting them directly to local, state, and national services they might not otherwise discover.</p>
+            <div class="program-impact"><div class="program-impact-dot"></div>Broad referral network across Florida</div>
+            <a href="contact.html" class="program-link">Learn More →</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="approach-section">
+    <div class="container">
+      <div style="text-align:center; margin-bottom:3rem;">
+        <div class="section-label">Our Approach</div>
+        <h2 class="section-title">How We Work</h2>
+        <p style="color:var(--color-text-light);max-width:540px;margin:0 auto;">Every engagement with Nouveau Hope follows a thoughtful, person-centered process.</p>
+      </div>
+      <div class="approach-grid">
+        <div class="approach-card fade-in">
+          <div class="approach-step">01</div>
+          <div class="approach-title">Listen &amp; Assess</div>
+          <div class="approach-desc">We start by understanding each person's unique situation, needs, and goals — without assumptions or judgment.</div>
+        </div>
+        <div class="approach-card fade-in">
+          <div class="approach-step">02</div>
+          <div class="approach-title">Connect &amp; Plan</div>
+          <div class="approach-desc">We identify the right programs, resources, and referrals and create a personalized path forward together.</div>
+        </div>
+        <div class="approach-card fade-in">
+          <div class="approach-step">03</div>
+          <div class="approach-title">Support &amp; Walk</div>
+          <div class="approach-desc">We provide ongoing support as individuals move through their journey — adjusting as needs evolve.</div>
+        </div>
+        <div class="approach-card fade-in">
+          <div class="approach-step">04</div>
+          <div class="approach-title">Empower &amp; Celebrate</div>
+          <div class="approach-desc">We celebrate milestones and help individuals build the confidence and skills to sustain their own well-being.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div style="background: linear-gradient(135deg, var(--color-accent) 0%, #D4895A 100%); padding: 4rem 1.5rem; text-align: center;">
+    <div class="container">
+      <h2 style="font-family: var(--font-display); font-size: clamp(1.8rem, 3vw, 2.4rem); color: white; margin-bottom: 0.75rem;">Need Support or Want to Refer Someone?</h2>
+      <p style="color: rgba(255,255,255,0.88); margin-bottom: 2rem; font-size: 1.05rem;">Reach out today — our team is ready to listen and help find the right path forward.</p>
+      <a href="contact.html" class="btn btn-secondary" style="background: white; color: var(--color-accent-dark);">Contact Us</a>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand-name">Nouveau Hope Wellness Group Inc.</div>
+          <div class="footer-tagline">Renewing lives. Restoring hope. Building community.</div>
+          <div class="footer-socials">
+            <a href="#" class="footer-social">f</a>
+            <a href="#" class="footer-social">in</a>
+            <a href="#" class="footer-social">✕</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Quick Links</div>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="mission.html">Mission &amp; Vision</a></li>
+            <li><a href="history.html">Our History</a></li>
+            <li><a href="projects.html">Programs</a></li>
+            <li><a href="team.html">Our Team</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Contact Us</div>
+          <div class="footer-contact-item">📍 2968 Russ St, Marianna, FL 32446</div>
+          <div class="footer-contact-item">✉ <a href="mailto:info@nouveauhope.us" style="color:rgba(255,255,255,0.7);text-decoration:none;">info@nouveauhope.us</a></div>
+          <div class="footer-contact-item">🌐 <a href="https://nouveauhope.us" target="_blank" style="color:rgba(255,255,255,0.7);text-decoration:none;">nouveauhope.us</a></div>
+          <div style="margin-top:1rem; font-size:0.78rem; opacity:0.5;">EIN: 99-3275747</div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 Nouveau Hope Wellness Group Inc. All rights reserved.</span>
+        <span>501(c)(3) Nonprofit Organization &bull; EIN: 99-3275747</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
