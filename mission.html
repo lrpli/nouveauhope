@@ -57,7 +57,7 @@
     .nav-toggle span { display: block; width: 24px; height: 2px; background: var(--color-text); border-radius: 2px; }
 
     .page-hero {
-      background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 60%, var(--color-secondary) 100%);
+      background: linear-gradient(135deg, rgba(29,92,84,0.9) 0%, rgba(42,123,111,0.87) 60%, rgba(78,168,160,0.85) 100%), url('https://images.unsplash.com/photo-1517048676732-d65bc937f952?w=1600&q=80') center/cover no-repeat;
       padding: 5rem 1.5rem;
       text-align: center;
       color: white;
@@ -104,6 +104,12 @@
     }
     .vision-block h3 { font-family: var(--font-display); font-size: 1.4rem; color: var(--color-primary-dark); margin-bottom: 1rem; }
     .vision-block p { color: var(--color-text-light); line-height: 1.8; }
+    .vision-img {
+      width: 100%;
+      border-radius: var(--radius);
+      margin-bottom: 1.25rem;
+      box-shadow: var(--shadow-md);
+    }
 
     .values-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
     .value-card {
@@ -254,6 +260,7 @@
           </p>
         </div>
         <div>
+          <img class="vision-img" src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=600&q=80" alt="Community members supporting each other" loading="lazy" />
           <div class="vision-block fade-in">
             <h3>Accessible Care</h3>
             <p>We remove financial, geographic, and cultural barriers to ensure everyone can receive the support they need.</p>

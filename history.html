@@ -51,7 +51,7 @@
     .nav-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 6px; }
     .nav-toggle span { display: block; width: 24px; height: 2px; background: var(--color-text); border-radius: 2px; }
 
-    .page-hero { background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 60%, var(--color-secondary) 100%); padding: 5rem 1.5rem; text-align: center; color: white; position: relative; overflow: hidden; }
+    .page-hero { background: linear-gradient(135deg, rgba(29,92,84,0.9) 0%, rgba(42,123,111,0.87) 60%, rgba(78,168,160,0.85) 100%), url('https://images.unsplash.com/photo-1491438590914-bc09fcaaf77a?w=1600&q=80') center/cover no-repeat; padding: 5rem 1.5rem; text-align: center; color: white; position: relative; overflow: hidden; }
     .page-hero::before { content: ''; position: absolute; width: 500px; height: 500px; border-radius: 50%; background: rgba(255,255,255,0.04); top: -200px; right: -100px; }
     .page-hero-label { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #A8DED9; margin-bottom: 0.75rem; }
     .page-hero h1 { font-family: var(--font-display); font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 1rem; }
@@ -68,9 +68,18 @@
     .founding-visual {
       background: linear-gradient(135deg, var(--color-bg-alt) 0%, var(--color-border) 100%);
       border-radius: var(--radius);
-      padding: 3rem 2rem;
+      padding: 0;
       text-align: center;
       border: 1px solid var(--color-border);
+      overflow: hidden;
+    }
+    .founding-img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+    .founding-visual-inner {
+      padding: 2.5rem 2rem;
     }
     .founding-year { font-family: var(--font-display); font-size: 5rem; font-weight: 700; color: var(--color-primary); line-height: 1; }
     .founding-year-label { color: var(--color-text-light); font-size: 0.9rem; margin-top: 0.5rem; }
@@ -229,6 +238,8 @@
           </p>
         </div>
         <div class="founding-visual fade-in">
+          <img class="founding-img" src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=700&q=80" alt="Small town community in Florida" loading="lazy" />
+          <div class="founding-visual-inner">
           <div class="founding-year">2023</div>
           <div class="founding-year-label">Year Founded</div>
           <div class="founding-loc">
@@ -244,6 +255,7 @@
             <div style="font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-text-light); margin-bottom: 0.4rem;">Organization Type</div>
             <div style="color: var(--color-primary-dark); font-weight: 600; font-size: 0.95rem;">501(c)(3) Nonprofit</div>
             <div style="font-size: 0.82rem; color: var(--color-text-light);">EIN: 99-3275747</div>
+          </div>
           </div>
         </div>
       </div>
