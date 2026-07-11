@@ -1,0 +1,151 @@
+:root {
+  --refresh-bg: radial-gradient(1200px 500px at 8% -12%, rgba(45, 164, 148, 0.18), transparent 60%),
+    radial-gradient(1000px 500px at 92% 0%, rgba(249, 115, 22, 0.12), transparent 58%),
+    linear-gradient(180deg, #f6fbfa 0%, #fdfbf8 60%, #f3f7f6 100%);
+  --refresh-card-shadow: 0 18px 36px rgba(12, 73, 65, 0.12);
+  --refresh-card-border: rgba(19, 112, 102, 0.16);
+}
+
+body {
+  background: var(--refresh-bg);
+  color: #183730;
+}
+
+.navbar {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(16, 94, 86, 0.15);
+}
+
+.nav-logo {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #e6fffb url('images/logo-nouveau-hope.svg') center/cover no-repeat;
+  box-shadow: 0 10px 22px rgba(20, 124, 111, 0.35);
+  border: 2px solid rgba(236, 254, 255, 0.95);
+}
+
+.nav-logo svg {
+  display: none;
+}
+
+.hero,
+.page-hero {
+  position: relative;
+}
+
+.hero::after,
+.page-hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(110deg, rgba(10, 57, 51, 0.28) 0%, rgba(10, 57, 51, 0.12) 50%, rgba(255, 255, 255, 0.05) 100%);
+  pointer-events: none;
+}
+
+.hero-content,
+.page-hero > * {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-card,
+.value-card,
+.vision-block,
+.program-card,
+.team-card,
+.leader-card,
+.contact-info-card,
+.contact-form-card,
+.join-card,
+.connect-card,
+.approach-card,
+.hours-card,
+.testimonial-card,
+.commitment-item,
+.mission-statement,
+.founding-visual,
+.founding-text {
+  border: 1px solid var(--refresh-card-border);
+  box-shadow: var(--refresh-card-shadow);
+}
+
+img,
+.vision-img,
+.founding-img,
+.team-avatar,
+.leader-avatar,
+.testimonial-avatar,
+.program-image,
+.program-card-img,
+.hero-feature-img {
+  border-radius: 16px;
+  box-shadow: 0 14px 30px rgba(9, 62, 55, 0.2);
+  transition: transform 0.35s ease, box-shadow 0.35s ease, filter 0.35s ease;
+  filter: saturate(1.08) contrast(1.04);
+}
+
+img:hover,
+.vision-img:hover,
+.founding-img:hover,
+.team-avatar:hover,
+.leader-avatar:hover,
+.testimonial-avatar:hover,
+.program-image:hover,
+.program-card-img:hover,
+.hero-feature-img:hover {
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: 0 18px 36px rgba(9, 62, 55, 0.26);
+  filter: saturate(1.14) contrast(1.08);
+}
+
+.btn {
+  border-radius: 999px;
+}
+
+.btn-primary,
+.btn-secondary,
+.form-submit {
+  background-image: linear-gradient(135deg, #f59e0b, #ea580c);
+  border: none;
+  box-shadow: 0 10px 22px rgba(234, 88, 12, 0.28);
+}
+
+.btn-primary:hover,
+.btn-secondary:hover,
+.form-submit:hover {
+  box-shadow: 0 14px 28px rgba(234, 88, 12, 0.35);
+}
+
+.nav-links a,
+.footer-links a {
+  transition: transform 0.2s ease, color 0.2s ease, background 0.2s ease;
+}
+
+.nav-links a:hover {
+  transform: translateY(-1px);
+}
+
+.fade-in {
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+@media (max-width: 768px) {
+  .nav-logo {
+    width: 44px;
+    height: 44px;
+  }
+
+  img,
+  .vision-img,
+  .founding-img,
+  .team-avatar,
+  .leader-avatar,
+  .testimonial-avatar,
+  .program-image,
+  .program-card-img,
+  .hero-feature-img {
+    border-radius: 12px;
+  }
+}
