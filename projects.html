@@ -4,6 +4,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Programs — Nouveau Hope Wellness Group Inc</title>
+  <meta name="description" content="Review Nouveau Hope's core wellness programs, including mental health support, family empowerment, health navigation, and outreach." />
+  <link rel="canonical" href="https://nouveauhope.my/projects.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Programs — Nouveau Hope Wellness Group Inc" />
+  <meta property="og:description" content="Discover practical, community-rooted programs that support emotional health, family stability, and long-term resilience." />
+  <meta property="og:url" content="https://nouveauhope.my/projects.html" />
+  <meta property="og:image" content="https://nouveauhope.my/assets/images/photo-1529156069898-49953e39b3ac.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" href="assets/images/logo-nouveau-hope.svg" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
@@ -212,10 +221,10 @@
           <span class="nav-brand-sub">Wellness Group</span>
         </div>
       </a>
-      <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Toggle menu">
+      <button class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="primary-nav">
         <span></span><span></span><span></span>
       </button>
-      <ul class="nav-links">
+      <ul class="nav-links" id="primary-nav">
         <li><a href="index.html">Home</a></li>
         <li><a href="mission.html">Mission</a></li>
         <li><a href="history.html">History</a></li>
@@ -240,7 +249,7 @@
       <div class="programs-grid">
 
         <div class="program-card fade-in">
-          <div class="program-image theme-blue"><img src="assets/images/photo-1573497620053-ea5300f94f21.jpg" alt="Mental health counseling session" loading="lazy" /></div>
+          <div class="program-image theme-blue"><img decoding="async" src="assets/images/photo-1573497620053-ea5300f94f21.jpg" width="1600" height="1067" alt="Mental health counseling session" loading="lazy" /></div>
           <div class="program-body">
             <span class="program-tag tag-mental">Mental Health</span>
             <div class="program-title">Mental Health Support</div>
@@ -251,7 +260,7 @@
         </div>
 
         <div class="program-card fade-in">
-          <div class="program-image theme-teal"><img src="assets/images/photo-1511632765486-a01980e01a18.jpg" alt="Community wellness gathering outdoors" loading="lazy" /></div>
+          <div class="program-image theme-teal"><img decoding="async" src="assets/images/photo-1511632765486-a01980e01a18.jpg" width="1600" height="1067" alt="Community wellness gathering outdoors" loading="lazy" /></div>
           <div class="program-body">
             <span class="program-tag tag-wellness">Wellness</span>
             <div class="program-title">Community Wellness Initiatives</div>
@@ -262,7 +271,7 @@
         </div>
 
         <div class="program-card fade-in">
-          <div class="program-image theme-peach"><img src="assets/images/photo-1609220136736-443140cffec6.jpg" alt="Happy family spending time together" loading="lazy" /></div>
+          <div class="program-image theme-peach"><img decoding="async" src="assets/images/photo-1609220136736-443140cffec6.jpg" width="1600" height="1067" alt="Happy family spending time together" loading="lazy" /></div>
           <div class="program-body">
             <span class="program-tag tag-family">Family</span>
             <div class="program-title">Family Empowerment</div>
@@ -273,7 +282,7 @@
         </div>
 
         <div class="program-card fade-in">
-          <div class="program-image theme-lavender"><img src="assets/images/photo-1631815588090-d4bfec5b1ccb.jpg" alt="Healthcare professional helping a patient" loading="lazy" /></div>
+          <div class="program-image theme-lavender"><img decoding="async" src="assets/images/photo-1631815588090-d4bfec5b1ccb.jpg" width="1600" height="2408" alt="Healthcare professional helping a patient" loading="lazy" /></div>
           <div class="program-body">
             <span class="program-tag tag-health">Health Navigation</span>
             <div class="program-title">Health System Navigation</div>
@@ -284,7 +293,7 @@
         </div>
 
         <div class="program-card fade-in">
-          <div class="program-image theme-gold"><img src="assets/images/photo-1524178232363-1fb2b075b655.jpg" alt="Workshop training classroom" loading="lazy" /></div>
+          <div class="program-image theme-gold"><img decoding="async" src="assets/images/photo-1524178232363-1fb2b075b655.jpg" width="1600" height="1067" alt="Workshop training classroom" loading="lazy" /></div>
           <div class="program-body">
             <span class="program-tag tag-skills">Life Skills</span>
             <div class="program-title">Life Skills &amp; Resilience Training</div>
@@ -295,7 +304,7 @@
         </div>
 
         <div class="program-card fade-in">
-          <div class="program-image theme-sage"><img src="assets/images/photo-1559027615-cd4628902d4a.jpg" alt="Volunteers doing community outreach" loading="lazy" /></div>
+          <div class="program-image theme-sage"><img decoding="async" src="assets/images/photo-1559027615-cd4628902d4a.jpg" width="1600" height="1063" alt="Volunteers doing community outreach" loading="lazy" /></div>
           <div class="program-body">
             <span class="program-tag tag-outreach">Outreach</span>
             <div class="program-title">Community Outreach &amp; Referrals</div>
@@ -356,9 +365,9 @@
           <div class="footer-brand-name">Nouveau Hope Wellness Group Inc.</div>
           <div class="footer-tagline">Renewing lives. Restoring hope. Building community.</div>
           <div class="footer-socials">
-            <a href="#" class="footer-social">f</a>
-            <a href="#" class="footer-social">in</a>
-            <a href="#" class="footer-social">✕</a>
+            <a href="#" class="footer-social" aria-label="Facebook">f</a>
+            <a href="#" class="footer-social" aria-label="Instagram">in</a>
+            <a href="#" class="footer-social" aria-label="Twitter">✕</a>
           </div>
         </div>
         <div>
@@ -376,7 +385,7 @@
           <div class="footer-col-title">Contact Us</div>
           <div class="footer-contact-item">📍 2968 Russ St, Marianna, FL 32446</div>
           <div class="footer-contact-item">✉ <a href="mailto:info@nouveauhope.my" style="color:rgba(255,255,255,0.7);text-decoration:none;">info@nouveauhope.my</a></div>
-          <div class="footer-contact-item">🌐 <a href="https://nouveauhope.my" target="_blank" style="color:rgba(255,255,255,0.7);text-decoration:none;">nouveauhope.my</a></div>
+          <div class="footer-contact-item">🌐 <a href="https://nouveauhope.my" target="_blank" rel="noopener" style="color:rgba(255,255,255,0.7);text-decoration:none;">nouveauhope.my</a></div>
           <div style="margin-top:1rem; font-size:0.78rem; opacity:0.5;">EIN: 99-3275747</div>
         </div>
       </div>
@@ -386,12 +395,6 @@
       </div>
     </div>
   </footer>
-
-  <script>
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-    }, { threshold: 0.12 });
-    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-  </script>
+  <script src="assets/site.js" defer></script>
 </body>
 </html>
